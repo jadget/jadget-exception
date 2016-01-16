@@ -11,3 +11,7 @@ jadget-exception is provided under the MIT license. See [LICENSE](LICENSE) file.
 ## Documentation & Examples
 
 See the [Wiki](https://github.com/jadget/jadget-exception/wiki/) for documentation and examples
+
+## Build
+
+[![Build Status](https://travis-ci.org/jadget/jadget-exception.svg?branch=master)](https://travis-ci.org/jadget/jadget-exception)

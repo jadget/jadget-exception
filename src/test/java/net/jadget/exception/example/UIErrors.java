@@ -1,9 +1,8 @@
 package net.jadget.exception.example;
 
-import net.jadget.exception.RangeBasedScope;
-import net.jadget.exception.Scope;
-import net.jadget.exception.ScopedErrorCode;
-import net.jadget.exception.util.ErrorCodeUtil;
+import net.jadget.exception.ErrorCode;
+import net.jadget.exception.ErrorCodes;
+import net.jadget.exception.Range;
 
 
 /**
@@ -12,7 +11,7 @@ import net.jadget.exception.util.ErrorCodeUtil;
  * 
  * UI error are in the 2xx range.
  */
-public enum UIErrorCode implements ScopedErrorCode {
+public enum UIErrors implements ErrorCode {
     /**
      * Initialization of UI failed.
      */
@@ -26,7 +25,7 @@ public enum UIErrorCode implements ScopedErrorCode {
     ;
 
     @Override
-    public int getIntValue() {
+    public int offset() {
         return code;
     }
 
@@ -36,21 +35,21 @@ public enum UIErrorCode implements ScopedErrorCode {
     }
 
     @Override
-    public Scope getScope() {
+    public Range getRange() {
         return scope;
     }
     
     @Override
     public String toString() {
-        return ErrorCodeUtil.formatErrorCode(this);
+        return ErrorCodes.formatErrorCode(this);
     }
     
-    private UIErrorCode(int code, String name) {
+    private UIErrors(int code, String name) {
         this.code = code;
         this.name = name;
     }
     
     private final int code;
     private final String name;
-    private final Scope scope = new RangeBasedScope(200, 299);
+    private static final Range scope = new Range(200, 299);
 }

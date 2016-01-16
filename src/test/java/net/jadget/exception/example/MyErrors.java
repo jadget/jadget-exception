@@ -1,13 +1,14 @@
 package net.jadget.exception.example;
 
 import net.jadget.exception.ErrorCode;
-import net.jadget.exception.util.ErrorCodeUtil;
+import net.jadget.exception.ErrorCodes;
+import net.jadget.exception.Range;
 
 
 /**
  * Error codes for MyApplication.
  */
-public enum MyErrorCode implements ErrorCode {
+public enum MyErrors implements ErrorCode {
     /**
      * Some error occurred.
      */
@@ -21,7 +22,7 @@ public enum MyErrorCode implements ErrorCode {
     ;
 
     @Override
-    public int getIntValue() {
+    public int offset() {
         return code;
     }
 
@@ -31,15 +32,21 @@ public enum MyErrorCode implements ErrorCode {
     }
     
     @Override
+    public Range getRange() {
+        return scope;
+    }
+    
+    @Override
     public String toString() {
-        return ErrorCodeUtil.formatErrorCode(this);
+        return ErrorCodes.formatErrorCode(this);
     }
 
-    private MyErrorCode(int code, String name) {
+    private MyErrors(int code, String name) {
         this.code = code;
         this.name = name;
     }
     
     private final int code;
     private final String name;
+    private static final Range scope = new Range(100, 199);
 }

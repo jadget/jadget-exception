@@ -31,7 +31,7 @@ import javax.annotation.Nonnull;
  * simulation system the range <code>300-399</code> etc.
  * <p>
  * 
- * It is highly recommended to use the {@link ErrorCodes#verifyValid(Enum[]...)} method as part of the application's
+ * It is highly recommended to use the {@link ErrorCodes#verifyValid(Enum[][])} method as part of the application's
  * unit test suite to verify ranges are not overlapping and error codes are not leaking over range boundaries.
  * 
  * 
@@ -47,7 +47,7 @@ public interface ErrorCode {
      * 
      * Use {@link ErrorCodes#toNumber(ErrorCode)} to get the globally unique number associated with an error code.
      * 
-     * @return the numeric value, always >= 0
+     * @return the numeric value, always &gt;= 0
      */
     int offset();
     

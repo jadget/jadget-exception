@@ -1,9 +1,6 @@
 language: java
 before_install:
   - chmod +x gradlew
-after_success:
-  - export RELEASE_FILE=$(ls build/libs/jadget-exception*.jar)
-  - echo "deploying $RELEASE_FILE to GitHub releases"
 before_deploy:
   - export RELEASE_FILE=$(ls build/libs/jadget-exception*.jar)
   - echo "deploying $RELEASE_FILE to GitHub releases"

@@ -1,5 +1,8 @@
-apply plugin: 'java'
+plugins {
+  id 'net.researchgate.release' version '2.3.4'
+}
 
+apply plugin: 'java'
 
 repositories {
     jcenter()
@@ -16,4 +19,8 @@ dependencies {
     compile 'com.google.code.findbugs:jsr305:3.0.1'
 
     testCompile 'junit:junit:4.12'
+}
+
+artifacts {
+    archives jar
 }

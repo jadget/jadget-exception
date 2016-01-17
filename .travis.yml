@@ -8,3 +8,5 @@ deploy:
   file: build/libs/jadget-exception*.jar
   on:
     repo: jadget/jadget-exception
+    tags: true
+    all_branches: true
